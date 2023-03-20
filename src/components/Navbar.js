@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 export default function Navbar(props) {
   return (
     <nav
-      className={`navbar navbar-expand-lg bg-${props.mode}`}
-      data-bs-theme={props.mode}
+      className={`navbar navbar-expand-lg bg-${props.colorMode==null?props.mode:(props.colorMode.bgClass==='darkblue'?"primary":"warning")}`}
+      data-bs-theme={props.colorMode==null?props.mode:(props.colorMode.bgClass==='darkblue'?"bg-primary":"bg-warning")}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
@@ -35,7 +35,10 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
-
+          <div className="d-flex flex-row">
+            <button type="button" className="dark-blue-box" onClick={props.changeColorMode('darkblue','blue','white')}></button>
+            <button type="button" className="gray-box mx-2" onClick={props.changeColorMode('blue','darkgray','black')}></button>
+          </div>
           <div
             className={`form-check form-switch text-${
               props.mode === "light" ? "dark" : "light"

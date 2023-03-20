@@ -7,10 +7,24 @@ export default function TextForm(props) {
     // console.log("UpperCase Clicked "+text);
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Uppercase","Converted to Uppercase","success");
   }
   const handleLWClick = ()=>{
     setText(text.toLocaleLowerCase());
+    props.showAlert("Success","Converted to Lowercase","warning");
   }
+  const handleRemoveSpaceClick = ()=>{
+    let newText = text;
+    newText = removeExtraSpace(newText)
+    setText(newText)
+  }
+  
+
+  const removeExtraSpace = (text)=>{
+    let newText = text.split(/[ ]+/);
+    return newText.join(" ");
+  }
+
   const handleTextClear = ()=>{
     setText('');
   }
@@ -25,7 +39,7 @@ export default function TextForm(props) {
   // setText("Enter Text Here");
   return (
     <>
-    <div className={`text-${props.mode==='light'?'dark':'light'}`}>
+    <div className={`text-${props.colorMode==null?(props.mode==='light'?'dark':'light'):props.colorMode.textClass}`}>
       <h3>{props.header}</h3>
       <div className="">
         <div className="mb-3">
@@ -33,14 +47,16 @@ export default function TextForm(props) {
         </div>
         <button className="btn btn-primary" onClick={handleUPClick}>Convert to Uppercase</button>
         <button className="btn btn-success mx-2" onClick={handleLWClick}>Convert to Lowercase</button>
-        <button className="btn btn-warning" onClick={handleTextClear}>Clear</button>
+        <button className="btn btn-secondary mx-2" onClick={handleRemoveSpaceClick}>Remove Extra Space</button>
+        <button className="btn btn-warning mx-2" onClick={handleTextClear}>Clear</button>
+        
       </div>
       <div className="container my-3">
         <h4>Your Text Summary</h4>
-        <p>{text.split(" ").length} words and {text.length} character</p>
+        <p>{(text.length>0)?removeExtraSpace(text).trim().split(" ").length:0} words and {text.length} character</p>
         <p>{0.008 * text.split(" ").length} minutes to read</p>
         <h4>Text Preview</h4>
-        <textarea value={text.length >0?text:'Enter something to preview here'} className={`form-control bg-${props.mode} text-${props.mode==='light'?'mute':'light'}`} id="textPreview" rows="8"></textarea>
+        <textarea onChange={()=>{}} value={text.length >0?text:'Enter something to preview here'} className={`form-control bg-${props.mode} text-${props.mode==='light'?'mute':'light'}`} id="textPreview" rows="8"></textarea>
         
           
       </div>

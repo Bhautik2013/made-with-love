@@ -11,3 +11,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dark-blue{
+  background-color: darkblue !important;
+  color: white !important;
+}
+.gray{
+  background-color: gray !important;
+  columns: black !important;
+}
+.dark-blue-box{
+  background-color: darkblue; 
+  width: 20px;
+  height: 20px;
+}
+
+.gray-box{
+  background-color: gray; 
+  width: 20px;
+  height: 20px;
+}
