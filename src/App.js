@@ -2,9 +2,16 @@
 import { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+
+import {
+  BrowserRouter,  
+  Routes,
+  Route,
+  Outlet
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -21,7 +28,7 @@ function App() {
         textClass : textClass
       });
       document.body.style.backgroundColor = bgMain;
-      
+      document.title = "TextUtil - Colorful Theme"
       // setMode(bgClass)
     }
     
@@ -47,6 +54,7 @@ function App() {
     {
       setMode("dark");
       document.body.style.backgroundColor = "black";
+      document.title = "TextUtil - Dark Theme"
       // showAlert("Enabled","Dark Mode Enabled","success");
       // settextMode("light");
     }
@@ -54,6 +62,7 @@ function App() {
     {
       setMode("light");
       document.body.style.backgroundColor = "white";
+      document.title = "TextUtil"
       // showAlert("Light Enabled","Light Mode Enabled","info");
       // settextMode("dark");
     }
@@ -63,13 +72,26 @@ function App() {
 
   return (
     <>
+    
+      
+    <BrowserRouter>
       <Navbar mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode} colorMode={colorMode}/>
       <Alert alert={alert}/>
-      <div className="container my-3">
-        <TextForm header="Enter the text to Analyze" mode={mode} showAlert={showAlert}  changeColorMode={changeColorMode} colorMode={colorMode}/>
-      </div>    
+      <Routes>
+        <Route path="/" 
+        element={
+          <div className="container my-3">
+            <TextForm header="Enter the text to Analyze" mode={mode} showAlert={showAlert}  changeColorMode={changeColorMode} colorMode={colorMode}/>
+          </div>
+        } />
+        <Route ecact path="about" element={<About mode={mode} changeColorMode={changeColorMode} colorMode={colorMode}/>}/>
+        <Route exact path="*" element={<h3>Oops! Invalid Page Request.</h3>}/>
+      
       
       {/* <About className=""/> */}
+      </Routes>
+      <Outlet/>
+    </BrowserRouter>
     </>
   );
 }

@@ -43,7 +43,7 @@ export default function TextForm(props) {
       <h3>{props.header}</h3>
       <div className="">
         <div className="mb-3">
-          <textarea value={text} className={`form-control bg-${props.mode} text-${props.mode==='light'?'dark':'light'}`} onChange={handleMyTextOnChange} id="myBox" rows="8"></textarea>
+          <textarea value={text} className={`form-control bg-${props.colorMode==null?props.mode:(props.colorMode.bgClass==='darkblue'?'primary':'dark')} text-${props.colorMode==null?(props.mode==='light'?'dark':'light'):'light'}`} onChange={handleMyTextOnChange} id="myBox" rows="8"></textarea>
         </div>
         <button className="btn btn-primary" onClick={handleUPClick}>Convert to Uppercase</button>
         <button className="btn btn-success mx-2" onClick={handleLWClick}>Convert to Lowercase</button>
@@ -56,7 +56,7 @@ export default function TextForm(props) {
         <p>{(text.length>0)?removeExtraSpace(text).trim().split(" ").length:0} words and {text.length} character</p>
         <p>{0.008 * text.split(" ").length} minutes to read</p>
         <h4>Text Preview</h4>
-        <textarea onChange={()=>{}} value={text.length >0?text:'Enter something to preview here'} className={`form-control bg-${props.mode} text-${props.mode==='light'?'mute':'light'}`} id="textPreview" rows="8"></textarea>
+        <textarea onChange={()=>{}} value={text.length >0?text:'Enter something to preview here'} className={`form-control bg-${props.colorMode==null?props.mode:(props.colorMode.bgClass==='darkblue'?'primary':'dark')} text-${props.colorMode==null?(props.mode==='light'?'dark':'light'):'light'}`} id="textPreview" rows="8"></textarea>
         
           
       </div>
