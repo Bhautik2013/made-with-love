@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/made-with-love/static/css/main.f4196725.css",
+    "main.js": "/made-with-love/static/js/main.e3d84c52.js",
+    "static/js/787.6b55e852.chunk.js": "/made-with-love/static/js/787.6b55e852.chunk.js",
+    "index.html": "/made-with-love/index.html",
+    "main.f4196725.css.map": "/made-with-love/static/css/main.f4196725.css.map",
+    "main.e3d84c52.js.map": "/made-with-love/static/js/main.e3d84c52.js.map",
+    "787.6b55e852.chunk.js.map": "/made-with-love/static/js/787.6b55e852.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4196725.css",
+    "static/js/main.e3d84c52.js"
+  ]
+}
