@@ -2,17 +2,17 @@
 import { useState } from "react";
 import "./App.css";
 import Alert from "./components/Alert";
-import About from "./components/About";
+// import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import Page404 from "./components/404";
+// import Page404 from "./components/404";
 
-import {
-  BrowserRouter,  
-  Routes,
-  Route,
-  // Outlet
-} from "react-router-dom";
+// import {
+//   BrowserRouter,  
+//   Routes,
+//   Route,
+//   // Outlet
+// } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -75,24 +75,27 @@ function App() {
     <>
     
       
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <Navbar mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode} colorMode={colorMode}/>
       <Alert alert={alert}/>
-      <Routes>
-        <Route exact path="/" 
+      {/* <Routes> */}
+        {/* <Route exact path="/" 
         element={
           <div className="container my-3">
             <TextForm header="Enter the text to Analyze" mode={mode} showAlert={showAlert}  changeColorMode={changeColorMode} colorMode={colorMode}/>
           </div>
         } />
         <Route exact path="about" element={<About mode={mode} changeColorMode={changeColorMode} colorMode={colorMode}/>}/>
-        <Route exact path="*" element={<Page404/>}/>
-      
+        <Route exact path="*" element={<Page404/>}/> */}
+      <div className="container my-3">
+        <TextForm header="Enter the text to Analyze" mode={mode} showAlert={showAlert}  changeColorMode={changeColorMode} colorMode={colorMode}/>
+      </div>
+
       
       {/* <About className=""/> */}
-      </Routes>
+      {/* </Routes> */}
       {/* <Outlet/> */}
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </>
   );
 }

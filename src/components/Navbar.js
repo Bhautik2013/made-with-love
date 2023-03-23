@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -9,9 +9,12 @@ export default function Navbar(props) {
       data-bs-theme={props.colorMode==null?props.mode:(props.colorMode.bgClass==='darkblue'?"bg-primary":"bg-warning")}
     >
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+        {/* <NavLink className="navbar-brand" to="/">
           {props.title}
-        </NavLink>
+        </NavLink> */}
+        <a className="navbar-brand" href="/">
+          {props.title}
+        </a>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,14 +29,20 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/">
+              {/* <NavLink className="nav-link" aria-current="page" to="/">
                 Home
-              </NavLink>
+              </NavLink> */}
+              <a className="nav-link" aria-current="page" href="/">
+                Home
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
+              {/* <NavLink className="nav-link" to="/about">
                 About
-              </NavLink>
+              </NavLink> */}
+              <a className="nav-link" href="/about">
+                About
+              </a>
             </li>
           </ul>
           <div className="d-flex flex-row">
