@@ -5,12 +5,13 @@ import Alert from "./components/Alert";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import Page404 from "./components/404";
 
 import {
   BrowserRouter,  
   Routes,
   Route,
-  Outlet
+  // Outlet
 } from "react-router-dom";
 
 function App() {
@@ -78,19 +79,19 @@ function App() {
       <Navbar mode={mode} toggleMode={toggleMode} changeColorMode={changeColorMode} colorMode={colorMode}/>
       <Alert alert={alert}/>
       <Routes>
-        <Route path="/" 
+        <Route exact path="/" 
         element={
           <div className="container my-3">
             <TextForm header="Enter the text to Analyze" mode={mode} showAlert={showAlert}  changeColorMode={changeColorMode} colorMode={colorMode}/>
           </div>
         } />
-        <Route ecact path="about" element={<About mode={mode} changeColorMode={changeColorMode} colorMode={colorMode}/>}/>
-        <Route exact path="*" element={<h3>Oops! Invalid Page Request.</h3>}/>
+        <Route exact path="about" element={<About mode={mode} changeColorMode={changeColorMode} colorMode={colorMode}/>}/>
+        <Route exact path="*" element={<Page404/>}/>
       
       
       {/* <About className=""/> */}
       </Routes>
-      <Outlet/>
+      {/* <Outlet/> */}
     </BrowserRouter>
     </>
   );
