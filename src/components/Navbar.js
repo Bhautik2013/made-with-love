@@ -12,7 +12,7 @@ export default function Navbar(props) {
         {/* <NavLink className="navbar-brand" to="/">
           {props.title}
         </NavLink> */}
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="#">
           {props.title}
         </a>
         <button
@@ -32,18 +32,18 @@ export default function Navbar(props) {
               {/* <NavLink className="nav-link" aria-current="page" to="/">
                 Home
               </NavLink> */}
-              <a className="nav-link" aria-current="page" href="/">
+              <a className="nav-link" aria-current="page" href="#">
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              {/* <NavLink className="nav-link" to="/about">
+            {/* <li className="nav-item">
+              <NavLink className="nav-link" to="/about">
                 About
-              </NavLink> */}
+              </NavLink>
               <a className="nav-link" href="/about">
                 About
               </a>
-            </li>
+            </li> */}
           </ul>
           <div className="d-flex flex-row">
             <button type="button" className="dark-blue-box" onClick={props.changeColorMode('darkblue','blue','white')}></button>
